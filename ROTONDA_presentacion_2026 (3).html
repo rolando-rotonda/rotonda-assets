@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>ROTONDA — Presentación Oficial 2026</title>
+<style>
+@font-face {
+  font-family: 'NM';
+  src: url('https://raw.githubusercontent.com/rolando-rotonda/rotonda-assets/main/NeueMontreal-Regular.otf') format('opentype');
+}
+@font-face {
+  font-family: 'GTA';
+  src: url('https://raw.githubusercontent.com/rolando-rotonda/rotonda-assets/main/GT-America-Standard-Regular.otf') format('opentype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'GTA';
+  src: url('https://raw.githubusercontent.com/rolando-rotonda/rotonda-assets/main/GT-America-Standard-Bold.otf') format('opentype');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'GTA';
+  src: url('https://raw.githubusercontent.com/rolando-rotonda/rotonda-assets/main/GT-America-Standard-Light.otf') format('opentype');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'GTAMono';
+  src: url('https://raw.githubusercontent.com/rolando-rotonda/rotonda-assets/main/GT-America-Mono-Medium.otf') format('opentype');
+}
+
+:root {
+  --black:  #000000;
+  --red:    #BF3C33;
+  --marble: #D0CAC8;
+  --cream:  #EEECED;
+  --white:  #FFFFFF;
+  --gray:   #888888;
+  --lgray:  #AAAAAA;
+  --dark:   #2D2D2D;
+
+  /* GitHub raw base URLs */
+  --base: 'https://github.com/rolando-rotonda/rotonda-assets/raw/refs/heads/main';
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: #111;
+  font-family: 'GTA', sans-serif;
+}
+
+.deck {
+  width: 100vw; height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide {
+  width: min(100vw, 177.78vh);
+  height: min(100vh, 56.25vw);
+  position: relative;
+  overflow: hidden;
+  display: none;
+}
+.slide.active { display: block; }
+
+/* ── SHARED ── */
+.rule {
+  position: absolute;
+  top: 4.5%; left: 4.4%; right: 4.4%;
+  height: 1px;
+}
+.lbl {
+  position: absolute;
+  top: 6%; left: 4.4%;
+  font-family: 'GTAMono', monospace;
+  font-size: clamp(6px, 0.85vh, 8px);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.fl {
+  position: absolute;
+  bottom: 3.5%; left: 4.4%;
+  font-family: 'GTAMono', monospace;
+  font-size: clamp(6px, 0.85vh, 8px);
+  letter-spacing: 0.1em;
+}
+.fr {
+  position: absolute;
+  bottom: 3.5%; right: 4.4%;
+  font-family: 'GTAMono', monospace;
+  font-size: clamp(6px, 0.85vh, 8px);
+  letter-spacing: 0.1em;
+}
+.ico {
+  position: absolute;
+  object-fit: contain;
+}
+
+/* ── NAV ── */
+#nav {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  display: flex; justify-content: center; align-items: center;
+  gap: 16px; padding: 10px; z-index: 100; pointer-events: none;
+}
+#nav button {
+  pointer-events: all;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+  font-family: 'GTAMono', monospace;
+  font-size: 9px; letter-spacing: 0.12em;
+  padding: 5px 14px; cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background 0.15s;
+}
+#nav button:hover { background: rgba(255,255,255,0.25); }
+#ctr {
+  color: rgba(255,255,255,0.5);
+  font-family: 'GTAMono', monospace;
+  font-size: 9px; letter-spacing: 0.1em;
+  min-width: 44px; text-align: center;
+}
+#hint {
+  position: fixed; top: 10px; right: 14px;
+  font-family: 'GTAMono', monospace;
+  font-size: 8px; color: rgba(255,255,255,0.3);
+  letter-spacing: 0.08em; z-index: 100;
+}
+
+/* ════════════════════════════════════════════════════
+   S1: PORTADA — fondo rojo
+════════════════════════════════════════════════════ */
+#s1 { background: var(--red); }
+#s1 .rule { background: rgba(255,255,255,0.3); }
+#s1 .lbl  { color: rgba(255,255,255,0.5); }
+#s1 .fl, #s1 .fr { color: rgba(255,255,255,0.5); }
+
+#s1 .wordmark {
+  position: absolute;
+  bottom: 17%; left: 3.5%;
+  font-family: 'NM', sans-serif;
+  font-size: min(13.5vw, 21vh);
+  color: var(--white);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+#s1 .side {
+  position: absolute;
+  right: 4.4%; bottom: 17%;
+  display: flex; flex-direction: column;
+  align-items: flex-end; gap: 2vh;
+}
+
+#s1 .side img {
+  width: min(4.5vw, 7.5vh);
+  height: min(4.5vw, 7.5vh);
+  object-fit: contain;
+}
+
+#s1 .side .tags {
+  text-align: right;
+  font-family: 'GTAMono', monospace;
+  font-size: clamp(6px, 0.9vh, 9px);
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.1em;
+  line-height: 2;
+  text-transform: uppercase;
+}
+
+/* ════════════════════════════════════════════════════
+   S2: PUNTO DE PARTIDA — fondo negro
+════════════════════════════════════════════════════ */
+#s2 { background: var(--black); }
+#s2 .rule { background: rgba(255,255,255,0.15); }
+#s2 .lbl  { color: rgba(255,255,255,0.35); }
+#s2 .fl, #s2 .fr { color: rgba(255,255,255,0.35); }
+
+#s2 .hl {
+  position: absolute;
+  top: 13%; left: 4.4%; right: 22%;
+}
+#s2 .hl .nm {
+  font-family: 'NM', sans-serif;
+  font-size: min(6.5vw, 10.5vh);
+  color: var(--white);
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  display: block;
+}
+#s2 .hl .lt {
+  font-family: 'GTA', sans-serif; font-weight: 300;
+  font-size: min(6.5vw, 10.5vh);
+  color: var(--white);
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  display: block;
+}
+#s2 .body {
+  position: absolute;
+  bottom: 13%; left: 4.4%; right: 24%;
+}
+#s2 .body p {
+  font-family: 'GTA', sans-serif; font-weight: 300;
+  font-size: min(1.35vw, 2.2vh);
+  color: var(--lgray); line-height: 1.7;
+  margin-bottom: 0.6em;
+}
+#s2 .body .wh {
+  font-family: 'GTA', sans-serif; font-weight: 400;
+  color: var(--white);
+}
+#s2 .ico { right: 3%; bottom: 13%; width: min(8vw, 13vh); height: min(8vw, 13vh); }
+
+/* ════════════════════════════════════════════════════
+   S3: QUÉ HACEMOS — crema
+════════════════════════════════════════════════════ */
+#s3 { background: var(--cream); }
+#s3 .rule { background: var(--black); }
+#s3 .lbl  { color: var(--gray); }
+#s3 .fl, #s3 .fr { color: var(--gray); }
+
+#s3 .hl {
+  position: absolute;
+  top: 13%; left: 4.4%; right: 20%;
+}
+#s3 .hl p {
+  font-family: 'NM', sans-serif;
+  font-size: min(5.2vw, 8.5vh);
+  color: var(--black);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+#s3 .hl .acc {
+  font-family: 'GTA', sans-serif; font-weight: 700;
+  color: var(--red);
+}
+#s3 .body {
+  position: absolute;
+  bottom: 15%; left: 4.4%; right: 22%;
+  font-family: 'GTA', sans-serif; font-weight: 300;
+  font-size: min(1.35vw, 2.2vh);
+  color: var(--dark); line-height: 1.7;
+}
+#s3 .ico { right: 3%; bottom: 16%; width: min(7vw, 11.5vh); height: min(7vw, 11.5vh); }
+
+/* ════════════════════════════════════════════════════
+   S4: DÓNDE DUELE — crema
+════════════════════════════════════════════════════ */
+#s4 { background: var(--cream); }
+#s4 .rule { background: var(--black); }
+#s4 .lbl  { color: var(--gray); }
+#s4 .fl, #s4 .fr { color: var(--gray); }
+
+#s4 .hl {
+  position: absolute;
+  top: 13%; left: 4.4%; right: 24%;
+}
+#s4 .hl .bd {
+  font-family: 'GTA', sans-serif; font-weight: 700;
+  font-size: min(8vw, 13vh);
+  color: var(--black);
+  letter-spacing: -0.03em; line-height: 1;
+  display: block;
+}
+#s4 .hl .nm {
+  font-family: 'NM', sans-serif;
+  font-size: min(8vw, 13vh);
+  color: var(--black);
+  letter-spacing: -0.03em; line-height: 1.05;
+  display: block;
+}
+#s4 .body {
+  position: absolute;
+  bottom: 16%; left: 4.4%; right: 24%;
+  font-family: 'GTA', sans-serif; font-weight: 300;
+  font-size: min(1.35vw, 2.2vh);
+  color: var(--dark); line-height: 1.7;
+}
+#s4 .ico { right: 3%; bottom: 18%; width: min(8vw, 13vh); height: min(8vw, 13vh); }
+
+/* ════════════════════════════════════════════════════
+   S5: INTERVENCIÓN — crema
+════════════════════════════════════════════════════ */
+#s5 { background: var(--cream); }
+#s5 .rule { background: var(--black); }
+#s5 .lbl  { color: var(--gray); }
+#s5 .fl, #s5 .fr { color: var(--gray); }
+
+#s5 .hl {
+  position: absolute;
+  top: 13%; left: 4.4%;
+}
+#s5 .hl .bd {
+  font-family: 'GTA', sans-serif; font-weight: 700;
+  font-size: min(5.2vw, 8vh);
+  color: var(--black); letter-spacing: -0.025em;
+  display: block;
+}
+#s5 .hl .nm {
+  font-family: 'NM', sans-serif;
+  font-size: min(5.2vw, 8vh);
+  color: var(--black); letter-spacing: -0.025em;
+  display: block;
+}
+
+#s5 .steps {
+  position: absolute;
+  top: 46%; left: 4.4%; right: 4.4%;
+}
+.step {
+  display: flex; align-items: baseline; gap: 2.5%;
+  padding: 1.8% 0;
+  border-top: 0.5px solid var(--marble);
+}
+.sn { font-family: 'GTAMono', monospace; font-size: min(1.1vw, 1.8vh); color: var(--red); min-width: 3%; letter-spacing: 0.05em; }
+.st { font-family: 'GTA', sans-serif; font-weight: 700; font-size: min(1.25vw, 2vh); color: var(--black); min-width: 13%; }
+.sd { font-family: 'GTA', sans-serif; font-weight: 300; font-size: min(1.25vw, 2vh); color: var(--dark); flex: 1; }
+
+/* ════════════════════════════════════════════════════
+   S6: SERVICIOS CREATIVOS — rojo
+════════════════════════════════════════════════════ */
+#s6 { background: var(--red); }
+#s6 .rule { background: rgba(255,255,255,0.2); }
+#s6 .lbl  { color: rgba(255,255,255,0.45); }
+#s6 .fl, #s6 .fr { color: rgba(255,255,255,0.45); }
+
+#s6 .hl {
+  position: absolute;
+  top: 13%; left: 4.4%; right: 22%;
+  font-family: 'NM', sans-serif;
+  font-size: min(4.8vw, 7.5vh);
+  color: var(--white);
+  letter-spacing: -0.025em; line-height: 1.1;
+}
+#s6 .svcs {
+  position: absolute;
+  top: 47%; left: 4.4%; right: 4.4%;
+}
+.sv {
+  display: flex; align-items: baseline; gap: 4%;
+  padding: 1.6% 0;
+  border-top: 0.5px solid rgba(255,255,255,0.18);
+}
+.svt { font-family: 'GTA', sans-serif; font-weight: 700; font-size: min(1.25vw, 2vh); color: var(--white); min-width: 22%; }
+.svt::before { content: "— "; }
+.svd { font-family: 'GTA', sans-serif; font-weight: 300; font-size: min(1.25vw, 2vh); color: rgba(255,210,208,0.9); flex: 1; }
+
+#s6 .ico { right: 3%; top: 11%; width: min(7vw, 11vh); height: min(7vw, 11vh); }
+
+/* ════════════════════════════════════════════════════
+   S7: SERVICIOS DIGITALES — negro
+════════════════════════════════════════════════════ */
+#s7 { background: var(--black); }
+#s7 .rule { background: rgba(255,255,255,0.15); }
+#s7 .lbl  { color: rgba(255,255,255,0.35); }
+#s7 .fl, #s7 .fr { color: rgba(255,255,255,0.35); }
+
+#s7 .hl {
+  position: absolute;
+  top: 13%; left: 4.4%;
+  font-family: 'NM', sans-serif;
+  font-size: min(4.5vw, 7vh);
+  color: var(--white);
+  letter-spacing: -0.025em; line-height: 1.1;
+}
+#s7 .cols {
+  position: absolute;
+  top: 44%; left: 4.4%; right: 4.4%;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0 5%;
+}
+.dr { padding: 1.8% 0; border-top: 0.5px solid #222; }
+.dt { font-family: 'GTA', sans-serif; font-weight: 700; font-size: min(1.2vw, 1.9vh); color: var(--white); margin-bottom: 0.3em; }
+.dd { font-family: 'GTA', sans-serif; font-weight: 300; font-size: min(1.1vw, 1.8vh); color: var(--lgray); }
+
+#s7 .tagline {
+  position: absolute; bottom: 8%; left: 4.4%;
+  font-family: 'GTA', sans-serif; font-weight: 400;
+  font-size: min(1.2vw, 1.9vh); color: var(--red);
+}
+
+/* ════════════════════════════════════════════════════
+   S8: LO QUE QUEDA — crema
+════════════════════════════════════════════════════ */
+#s8 { background: var(--cream); }
+#s8 .rule { background: var(--black); }
+#s8 .lbl  { color: var(--gray); }
+#s8 .fl, #s8 .fr { color: var(--gray); }
+
+#s8 .hl {
+  position: absolute;
+  top: 13%; left: 4.4%;
+  font-family: 'NM', sans-serif;
+  font-size: min(5.5vw, 8.5vh);
+  color: var(--black);
+  letter-spacing: -0.025em; line-height: 1.1;
+}
+#s8 .items {
+  position: absolute;
+  top: 45%; left: 4.4%; right: 4.4%;
+}
+.ir { display: flex; align-items: baseline; gap: 2.5%; padding: 1.8% 0; border-top: 0.5px solid var(--marble); }
+.in { font-family: 'GTAMono', monospace; font-size: min(1.1vw, 1.8vh); color: var(--red); min-width: 3%; letter-spacing: 0.05em; }
+.it { font-family: 'GTA', sans-serif; font-weight: 400; font-size: min(1.4vw, 2.2vh); color: var(--black); }
+
+/* ════════════════════════════════════════════════════
+   S9: VUELTA COMPLETA — crema
+════════════════════════════════════════════════════ */
+#s9 { background: var(--cream); }
+#s9 .rule { background: var(--black); }
+#s9 .lbl  { color: var(--gray); }
+#s9 .fl, #s9 .fr { color: var(--gray); }
+
+#s9 .hl {
+  position: absolute;
+  top: 13%; left: 4.4%;
+  font-family: 'NM', sans-serif;
+  font-size: min(6.5vw, 10vh);
+  color: var(--black);
+  letter-spacing: -0.03em; line-height: 1.05;
+}
+#s9 .sub {
+  position: absolute;
+  top: 52%; left: 4.4%; right: 15%;
+  font-family: 'GTA', sans-serif; font-weight: 300;
+  font-size: min(1.35vw, 2.2vh); color: var(--dark); line-height: 1.7;
+}
+#s9 .proc {
+  position: absolute;
+  bottom: 10%; left: 4.4%; right: 4.4%;
+  display: flex; gap: 0.4%;
+}
+.ps {
+  flex: 1; padding: 2% 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'GTAMono', monospace;
+  font-size: min(1vw, 1.6vh); letter-spacing: 0.12em;
+}
+.ps.marble { background: var(--marble); color: var(--black); }
+.ps.dark   { background: #2A2A2A; color: var(--white); }
+.ps.red    { background: var(--red); color: var(--white); }
+
+/* ════════════════════════════════════════════════════
+   S10: CÓMO PENSAMOS — crema
+════════════════════════════════════════════════════ */
+#s10 { background: var(--cream); }
+#s10 .rule { background: var(--black); }
+#s10 .lbl  { color: var(--gray); }
+#s10 .fl, #s10 .fr { color: var(--gray); }
+
+#s10 .hl {
+  position: absolute;
+  top: 13%; left: 4.4%; right: 34%;
+  font-family: 'NM', sans-serif;
+  font-size: min(4.5vw, 7vh);
+  color: var(--black);
+  letter-spacing: -0.025em; line-height: 1.1;
+}
+#s10 .body {
+  position: absolute;
+  bottom: 15%; left: 4.4%; right: 34%;
+  font-family: 'GTA', sans-serif; font-weight: 300;
+  font-size: min(1.3vw, 2vh); color: var(--dark); line-height: 1.7;
+}
+#s10 .tags {
+  position: absolute;
+  top: 13%; right: 4.4%; width: 27%;
+  display: flex; flex-wrap: wrap; gap: 1.5%;
+}
+.tp {
+  background: var(--black); color: var(--cream);
+  font-family: 'GTAMono', monospace;
+  font-size: min(1vw, 1.5vh); letter-spacing: 0.1em;
+  padding: 1.2% 2.5%;
+}
+.tp.red { background: var(--red); }
+#s10 .ico { right: 4.4%; bottom: 12%; width: min(12vw, 18vh); height: min(6vw, 9vh); }
+
+/* ════════════════════════════════════════════════════
+   S11: EXPERIENCIA — negro
+════════════════════════════════════════════════════ */
+#s11 { background: var(--black); }
+#s11 .rule { background: rgba(255,255,255,0.15); }
+#s11 .lbl  { color: rgba(255,255,255,0.35); }
+#s11 .fl, #s11 .fr { color: rgba(255,255,255,0.35); }
+
+#s11 .hl {
+  position: absolute;
+  top: 13%; left: 4.4%;
+  font-family: 'NM', sans-serif;
+  font-size: min(5.2vw, 8vh);
+  color: var(--white);
+  letter-spacing: -0.025em; line-height: 1.1;
+}
+#s11 .brands {
+  position: absolute;
+  top: 45%; left: 4.4%; right: 4.4%;
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 0.5%;
+}
+.bb {
+  border: 0.5px solid #2A2A2A;
+  padding: 3% 2%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'GTA', sans-serif; font-size: min(1.3vw, 2vh); color: var(--white);
+}
+#s11 .fn {
+  position: absolute; bottom: 8%; left: 4.4%; right: 4.4%;
+  font-family: 'GTA', sans-serif; font-weight: 300;
+  font-size: min(1.1vw, 1.8vh); color: var(--lgray); font-style: italic;
+}
+
+/* ════════════════════════════════════════════════════
+   S12: CUÁNDO ENTRAR — crema
+════════════════════════════════════════════════════ */
+#s12 { background: var(--cream); }
+#s12 .rule { background: var(--black); }
+#s12 .lbl  { color: var(--gray); }
+#s12 .fl, #s12 .fr { color: var(--gray); }
+
+#s12 .hl {
+  position: absolute;
+  top: 13%; left: 4.4%; right: 28%;
+  font-family: 'NM', sans-serif;
+  font-size: min(4.8vw, 7.5vh);
+  color: var(--black);
+  letter-spacing: -0.025em; line-height: 1.1;
+}
+#s12 .bulls {
+  position: absolute;
+  top: 45%; left: 4.4%; right: 28%;
+}
+.br { display: flex; align-items: baseline; gap: 2%; padding: 1.6% 0; border-top: 0.5px solid var(--marble); }
+.bd { font-family: 'GTAMono', monospace; font-size: min(1.3vw, 2vh); color: var(--red); min-width: 2%; }
+.bt { font-family: 'GTA', sans-serif; font-weight: 400; font-size: min(1.3vw, 2vh); color: var(--black); line-height: 1.5; }
+
+#s12 .cta {
+  position: absolute;
+  right: 4.4%; top: 43%; width: 20%;
+  background: var(--red); padding: 8% 7%;
+  font-family: 'NM', sans-serif;
+  font-size: min(2.4vw, 3.8vh);
+  color: var(--white);
+  line-height: 1.2; letter-spacing: -0.02em;
+}
+
+/* ════════════════════════════════════════════════════
+   S13: CIERRE — rojo
+════════════════════════════════════════════════════ */
+#s13 { background: var(--red); }
+#s13 .rule { background: rgba(255,255,255,0.2); }
+#s13 .lbl  { color: rgba(255,255,255,0.4); }
+#s13 .fl, #s13 .fr { color: rgba(255,255,255,0.4); }
+
+#s13 .hl {
+  position: absolute;
+  top: 13%; left: 4.4%; right: 24%;
+  font-family: 'NM', sans-serif;
+  font-size: min(5.8vw, 9vh);
+  color: var(--white);
+  letter-spacing: -0.025em; line-height: 1.05;
+}
+#s13 .div {
+  position: absolute; top: 57%; left: 4.4%; width: 48%; height: 1px;
+  background: rgba(255,255,255,0.2);
+}
+#s13 .sub {
+  position: absolute; top: 62%; left: 4.4%; right: 24%;
+  font-family: 'GTA', sans-serif; font-weight: 300;
+  font-size: min(1.5vw, 2.4vh);
+  color: rgba(255,255,255,0.85); line-height: 1.7;
+}
+#s13 .ct {
+  position: absolute; bottom: 12%; left: 4.4%;
+}
+#s13 .ct .em {
+  font-family: 'GTAMono', monospace;
+  font-size: min(1.2vw, 1.9vh); color: var(--white);
+  letter-spacing: 0.06em; margin-bottom: 0.5em;
+}
+#s13 .ct .ci {
+  font-family: 'GTAMono', monospace;
+  font-size: min(1vw, 1.6vh); color: rgba(255,210,208,0.8);
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+
+/* Monograma cierre — pequeño, limpio, esquina derecha */
+#s13 .mono {
+  position: absolute;
+  right: 4.4%; top: 13%;
+  width: min(3.5vw, 5.5vh);
+  height: min(3.5vw, 5.5vh);
+  object-fit: contain;
+}
+
+#s13 .ico {
+  right: 4.4%; bottom: 10%;
+  width: min(5.5vw, 9vh); height: min(5.5vw, 9vh);
+}
+
+</style>
+</head>
+<body>
+
+<div id="hint">← → FLECHAS / ESPACIO</div>
+
+<div class="deck">
+
+<!-- ══ S1: PORTADA ══ -->
+<div class="slide active" id="s1">
+  <div class="rule"></div>
+  <div class="lbl">ROTONDA</div>
+  <div class="wordmark">ROTONDA</div>
+  <div class="side">
+    <img src="https://raw.githubusercontent.com/rolando-rotonda/rotonda-assets/main/PNG/R040.png" alt="ROTONDA">
+    <div class="tags">AGENCIA CREATIVA<br>MONTERREY · GUADALAJARA · 2026</div>
+  </div>
+  <div class="fl">ROTONDA</div>
+  <div class="fr">PRESENTACIÓN OFICIAL</div>
+</div>
+
+<!-- ══ S2: EL PUNTO DE PARTIDA ══ -->
+<div class="slide" id="s2">
+  <div class="rule"></div>
+  <div class="lbl">01 / El punto de partida</div>
+  <div class="hl">
+    <span class="nm">Los negocios crecen.</span>
+    <span class="lt">Pero la comunicación<br>se enreda.</span>
+  </div>
+  <div class="body">
+    <p>A veces no sabemos muy bien qué decir primero, cómo explicar lo que hacemos sin sonar aburrido, ni el por qué alguien debería elegirte a ti.</p>
+    <p class="wh">Ahí estamos nosotros.</p>
+  </div>
+  <img class="ico" src="https://raw.githubusercontent.com/rolando-rotonda/rotonda-assets/main/Rojos/14.png" alt="">
+  <div class="fl">ROTONDA</div><div class="fr">02</div>
+</div>
+
+<!-- ══ S3: QUÉ HACEMOS ══ -->
+<div class="slide" id="s3">
+  <div class="rule"></div>
+  <div class="lbl">02 / Qué hacemos</div>
+  <div class="hl">
+    <p>Te ayudamos a traducir tu negocio en algo que se entiende, se recuerda y <span class="acc">se puede vender.</span></p>
+  </div>
+  <div class="body">Cuando hay ideas y energía pero falta encontrar las palabras correctas y las frases matonas— para eso estamos.</div>
+  <img class="ico" src="https://raw.githubusercontent.com/rolando-rotonda/rotonda-assets/main/Negros/01.png" alt="">
+  <div class="fl">ROTONDA</div><div class="fr">03</div>
+</div>
+
+<!-- ══ S4: DÓNDE DUELE ══ -->
+<div class="slide" id="s4">
+  <div class="rule"></div>
+  <div class="lbl">03 / Por qué ROTONDA</div>
+  <div class="hl">
+    <span class="bd">Hoy no faltan ideas.</span>
+    <span class="nm">Falta enfoque.</span>
+  </div>
+  <div class="body">Cuando todo compite por atención, la diferencia no es tener más — es saber qué decir primero.</div>
+  <img class="ico" src="https://raw.githubusercontent.com/rolando-rotonda/rotonda-assets/main/Negros/08.png" alt="">
+  <div class="fl">ROTONDA</div><div class="fr">04</div>
+</div>
+
+<!-- ══ S5: NUESTRA INTERVENCIÓN ══ -->
+<div class="slide" id="s5">
+  <div class="rule"></div>
+  <div class="lbl">04 / Nuestra intervención</div>
+  <div class="hl">
+    <span class="bd">Primero entendemos.</span>
+    <span class="nm">Luego construimos.</span>
+  </div>
+  <div class="steps">
+    <div class="step"><span class="sn">01</span><span class="st">Escuchar</span><span class="sd">Entendemos tu negocio antes de opinar.</span></div>
+    <div class="step"><span class="sn">02</span><span class="st">Ordenar</span><span class="sd">Separamos lo urgente de lo que puede esperar.</span></div>
+    <div class="step"><span class="sn">03</span><span class="st">Decidir</span><span class="sd">Convertimos criterio en una postura que se pueda defender.</span></div>
+    <div class="step"><span class="sn">04</span><span class="st">Construir</span><span class="sd">Bajamos la idea a mensajes, piezas y canales.</span></div>
+  </div>
+  <div class="fl">ROTONDA</div><div class="fr">05</div>
+</div>
+
+<!-- ══ S6: SERVICIOS CREATIVOS ══ -->
+<div class="slide" id="s6">
+  <div class="rule"></div>
+  <div class="lbl">05 / Servicios creativos</div>
+  <div class="hl">La parte que le da nombre, forma y colmillo a tu marca.</div>
+  <div class="svcs">
+    <div class="sv"><span class="svt">Branding</span><span class="svd">Nombre, concepto, narrativa, identidad y sistema verbal.</span></div>
+    <div class="sv"><span class="svt">Dirección creativa</span><span class="svd">Criterio para campañas, piezas, lanzamientos y decisiones de marca.</span></div>
+    <div class="sv"><span class="svt">Sistema comercial</span><span class="svd">One pager, presentación y herramientas para vender sin improvisar.</span></div>
+    <div class="sv"><span class="svt">Consultoría creativa</span><span class="svd">Para ordenar ideas y mensajes antes de salir a ejecutar.</span></div>
+  </div>
+  <img class="ico" src="https://raw.githubusercontent.com/rolando-rotonda/rotonda-assets/main/Blancos/09.png" alt="">
+  <div class="fl">ROTONDA</div><div class="fr">06</div>
+</div>
+
+<!-- ══ S7: SERVICIOS DIGITALES ══ -->
+<div class="slide" id="s7">
+  <div class="rule"></div>
+  <div class="lbl">06 / Servicios digitales</div>
+  <div class="hl">La parte que sostiene la claridad<br>en canales reales.</div>
+  <div class="cols">
+    <div>
+      <div class="dr"><div class="dt">Estrategia digital</div><div class="dd">Canales, audiencias, contenido y prioridades.</div></div>
+      <div class="dr"><div class="dt">Contenido</div><div class="dd">Parrilla, formatos, copy, video y comunidad.</div></div>
+      <div class="dr"><div class="dt">Email marketing</div><div class="dd">Mailing, CRM básico, flujos y comunicación directa.</div></div>
+    </div>
+    <div>
+      <div class="dr"><div class="dt">Paid media</div><div class="dd">Lanzamiento, gestión y lectura de campañas.</div></div>
+      <div class="dr"><div class="dt">Web</div><div class="dd">Landing, arquitectura, copy web y experiencia base.</div></div>
+      <div class="dr"><div class="dt">Herramientas</div><div class="dd">CRM, flujos comerciales y orden digital.</div></div>
+    </div>
+  </div>
+  <div class="tagline">La pauta acelera. Pero primero hay que saber qué vale la pena acelerar.</div>
+  <div class="fl">ROTONDA</div><div class="fr">07</div>
+</div>
+
+<!-- ══ S8: LO QUE QUEDA ══ -->
+<div class="slide" id="s8">
+  <div class="rule"></div>
+  <div class="lbl">07 / Lo que queda</div>
+  <div class="hl">El trabajo termina cuando<br>tienes algo que puedes usar.</div>
+  <div class="items">
+    <div class="ir"><span class="in">01</span><span class="it">Una base estratégica y narrativa clara.</span></div>
+    <div class="ir"><span class="in">02</span><span class="it">Una presentación lista para salir a vender.</span></div>
+    <div class="ir"><span class="in">03</span><span class="it">Piezas para prospectar, explicar y cerrar.</span></div>
+    <div class="ir"><span class="in">04</span><span class="it">Contenido con estructura y calendario.</span></div>
+    <div class="ir"><span class="in">05</span><span class="it">Una presencia digital que ordena la experiencia.</span></div>
+  </div>
+  <div class="fl">ROTONDA</div><div class="fr">08</div>
+</div>
+
+<!-- ══ S9: VUELTA COMPLETA ══ -->
+<div class="slide" id="s9">
+  <div class="rule"></div>
+  <div class="lbl">08 / La vuelta completa</div>
+  <div class="hl">Una secuencia<br>de decisiones.</div>
+  <div class="sub">Cada proyecto tiene su tamaño, pero la lógica no cambia: primero se entiende, luego se ordena, después se construye.</div>
+  <div class="proc">
+    <div class="ps marble">Escuchar</div>
+    <div class="ps dark">Ordenar</div>
+    <div class="ps dark">Decidir</div>
+    <div class="ps dark">Construir</div>
+    <div class="ps red">Activar</div>
+  </div>
+  <div class="fl">ROTONDA</div><div class="fr">09</div>
+</div>
+
+<!-- ══ S10: CÓMO PENSAMOS ══ -->
+<div class="slide" id="s10">
+  <div class="rule"></div>
+  <div class="lbl">09 / Cómo pensamos</div>
+  <div class="hl">Usamos todas las herramientas disponibles. El criterio sigue siendo humano.</div>
+  <div class="body">Investigamos, comparamos, probamos y ajustamos. La tecnología acelera el proceso. La decisión creativa la tomamos nosotros — gente que entiende tu negocio.</div>
+  <div class="tags">
+    <div class="tp">IA</div>
+    <div class="tp">BENCH</div>
+    <div class="tp">COPY</div>
+    <div class="tp">DISEÑO</div>
+    <div class="tp">PAUTA</div>
+    <div class="tp red">CRITERIO &gt; MODA</div>
+  </div>
+  <img class="ico" src="https://raw.githubusercontent.com/rolando-rotonda/rotonda-assets/main/Negros/19.png" alt="">
+  <div class="fl">ROTONDA</div><div class="fr">10</div>
+</div>
+
+<!-- ══ S11: EXPERIENCIA ══ -->
+<div class="slide" id="s11">
+  <div class="rule"></div>
+  <div class="lbl">10 / Experiencia</div>
+  <div class="hl">Hemos trabajado con marcas<br>de distintos tamaños de caos.</div>
+  <div class="brands">
+    <div class="bb">Ben & Frank</div>
+    <div class="bb">Bombavista</div>
+    <div class="bb">RegioPoder</div>
+    <div class="bb">HP Inc.</div>
+    <div class="bb">Valvoline</div>
+    <div class="bb">Birdman</div>
+    <div class="bb">Casa Sauza</div>
+    <div class="bb">Bemoris</div>
+  </div>
+  <div class="fn">Lo que más nos ha servido: entender rápido, no perder el contexto y entregar algo que puedas usar mañana, no en tres meses.</div>
+  <div class="fl">ROTONDA</div><div class="fr">11</div>
+</div>
+
+<!-- ══ S12: CUÁNDO ENTRAR ══ -->
+<div class="slide" id="s12">
+  <div class="rule"></div>
+  <div class="lbl">11 / Cuándo elegir ROTONDA</div>
+  <div class="hl">Estamos para ti cuando hay que ordenar antes de salir a gritar.</div>
+  <div class="bulls">
+    <div class="br"><span class="bd">·</span><span class="bt">Vas a lanzar una marca y no sabes por dónde empezar.</span></div>
+    <div class="br"><span class="bd">·</span><span class="bt">Tu negocio ya cambió pero tu comunicación no se enteró.</span></div>
+    <div class="br"><span class="bd">·</span><span class="bt">Tienes contenido pero no sabes bien qué estás diciendo.</span></div>
+    <div class="br"><span class="bd">·</span><span class="bt">Tu equipo necesita una dirección creativa que no cambie cada semana.</span></div>
+    <div class="br"><span class="bd">·</span><span class="bt">Quieres vender mejor sin sonar como tu propia brochure.</span></div>
+  </div>
+  <div class="cta">Claridad<br>para avanzar.</div>
+  <div class="fl">ROTONDA</div><div class="fr">12</div>
+</div>
+
+<!-- ══ S13: CIERRE ══ -->
+<div class="slide" id="s13">
+  <div class="rule"></div>
+  <div class="lbl">CIERRE</div>
+  <div class="hl">Es hora de hacer tu marca un punto de referencia.</div>
+  <div class="div"></div>
+  <div class="sub">Una conversación de 30 minutos basta para saber si tiene sentido trabajar juntos.</div>
+  <div class="ct">
+    <div class="em">hola@rotonda.mx  ·  rotonda.mx</div>
+    <div class="em" style="margin-top:0.4em;">8117998295</div>
+    <div class="ci">Monterrey  ·  Guadalajara</div>
+  </div>
+  <img class="mono" src="https://raw.githubusercontent.com/rolando-rotonda/rotonda-assets/main/PNG/R040.png" alt="ROTONDA">
+  <img class="ico" src="https://raw.githubusercontent.com/rolando-rotonda/rotonda-assets/main/Blancos/06.png" alt="">
+  <div class="fl">ROTONDA</div><div class="fr">13</div>
+</div>
+
+</div><!-- /deck -->
+
+<div id="nav">
+  <button id="prev">← ANTERIOR</button>
+  <span id="ctr">1 / 13</span>
+  <button id="next">SIGUIENTE →</button>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+let cur = 0;
+function go(n) {
+  slides[cur].classList.remove('active');
+  cur = (n + slides.length) % slides.length;
+  slides[cur].classList.add('active');
+  document.getElementById('ctr').textContent = (cur+1) + ' / ' + slides.length;
+}
+document.getElementById('next').addEventListener('click', () => go(cur+1));
+document.getElementById('prev').addEventListener('click', () => go(cur-1));
+document.addEventListener('keydown', e => {
+  if (e.key==='ArrowRight'||e.key===' ') { e.preventDefault(); go(cur+1); }
+  if (e.key==='ArrowLeft') { e.preventDefault(); go(cur-1); }
+});
+</script>
+</body>
+</html>
