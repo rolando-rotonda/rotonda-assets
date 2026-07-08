@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comercial — MBO · Interiorismo Comercial</title>
+<link rel="stylesheet" href="css/site.css">
+<style>
+  .com-hero .btn{ margin-top:40px; }
+
+  .offer{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:56px; background:var(--acero-15); border:1px solid var(--acero-15); }
+  .offer .svc{ background:var(--lamina); padding:clamp(30px,2.8vw,44px) clamp(24px,2vw,34px); display:flex; flex-direction:column; min-height:250px; border-bottom:3px solid transparent; transition:border-color 250ms; }
+  .offer .svc:hover{ border-bottom-color:var(--terra); }
+  .svc-num{ font-family:var(--mono); font-weight:300; font-size:13px; letter-spacing:.2em; color:var(--terra); }
+  .svc-title{ font-family:var(--mono); font-weight:500; font-size:clamp(17px,1.6vw,20px); line-height:1.2; color:var(--grafito); margin:auto 0 14px; text-transform:uppercase; }
+  .svc-body{ font-family:var(--sans); font-weight:300; font-size:14px; line-height:1.65; color:var(--muted); }
+  @media (max-width:900px){ .offer{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .offer{ grid-template-columns:1fr; } .offer .svc{ min-height:0; } }
+
+  .aud{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(40px,6vw,90px); align-items:center; }
+  .aud-list{ display:flex; flex-direction:column; }
+  .aud-item{ display:flex; align-items:baseline; gap:20px; padding:18px 0; border-top:1px solid rgba(234,234,225,.14); }
+  .aud-item:last-child{ border-bottom:1px solid rgba(234,234,225,.14); }
+  .aud-item .n{ font-family:var(--mono); font-weight:300; font-size:12px; letter-spacing:.16em; color:var(--terra); width:36px; }
+  .aud-item .t{ font-family:var(--mono); font-weight:500; font-size:clamp(15px,1.5vw,19px); color:var(--lamina); }
+  @media (max-width:820px){ .aud{ grid-template-columns:1fr; gap:36px; } }
+
+  .band{ display:grid; grid-template-columns:1fr 1fr; }
+  .band .ph{ min-height:clamp(260px,36vw,440px); }
+  .band-txt{ background:var(--grafito); color:var(--lamina); display:flex; flex-direction:column; justify-content:center; padding:clamp(40px,6vw,90px) var(--pad-x); }
+  .band-txt h3{ font-family:var(--sans); font-weight:600; font-size:clamp(24px,3vw,38px); line-height:1.15; margin-bottom:24px; text-transform:uppercase; }
+  .band-txt p{ font-family:var(--sans); font-weight:300; font-size:clamp(15px,1.3vw,18px); line-height:1.8; color:var(--lamina-75); max-width:48ch; }
+  @media (max-width:820px){ .band{ grid-template-columns:1fr; } }
+
+  .cta-final{ background:var(--terra); color:var(--lamina); text-align:center; padding:clamp(64px,9vw,120px) var(--pad-x); position:relative; overflow:hidden; }
+  .cta-final .sym-bg{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:min(60vw,600px); opacity:.08; }
+  .cta-final h2{ position:relative; z-index:1; font-family:var(--sans); font-weight:600; font-size:clamp(26px,3.6vw,46px); line-height:1.14; max-width:22ch; margin:0 auto 36px; text-transform:uppercase; }
+  .cta-final .btn-wrap{ position:relative; z-index:1; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html"><img class="nav-logo" src="assets/logo-origen-grafito.png" alt="MBO — Desde el origen"></a>
+  <div class="nav-links">
+    <a class="nav-link" href="index.html">Inicio</a>
+    <a class="nav-link" href="nosotros.html">Nosotros</a>
+    <a class="nav-link active" href="comercial.html">Comercial</a>
+    <a class="nav-link" href="residencial.html">Residencial</a>
+    <a class="nav-link" href="galeria.html">Galería</a>
+    <a class="nav-link" href="contacto.html">Contacto</a>
+    <a class="nav-cta" href="contacto.html">Cotizar proyecto</a>
+  </div>
+</nav>
+
+<section class="pagehero com-hero" data-screen-label="Hero Comercial">
+  <img class="sym-bg" src="assets/symbol-clara.png" alt="">
+  <div class="pagehero-inner">
+    <p class="eyebrow on-dark">Comercial</p>
+    <h1 class="pagehero-title">Interiorismo comercial resuelto por quien ya recorrió el camino</h1>
+    <div class="pagehero-rule"></div>
+    <p class="pagehero-sub">Islas, vitrinas, exhibidores, locales y showrooms para marcas, cadenas, plazas y desarrolladores.</p>
+    <a class="btn btn-primary" href="contacto.html">Cotizar proyecto comercial <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<section class="section" data-screen-label="Qué resolvemos">
+  <p class="eyebrow">Qué resolvemos</p>
+  <h2 class="section-title">Soluciones para el <em>punto de venta</em></h2>
+  <div class="offer">
+    <div class="svc"><span class="svc-num">01</span><h3 class="svc-title">Islas y exhibidores</h3><p class="svc-body">Estructuras de exhibición que ordenan el recorrido y destacan producto en plaza.</p></div>
+    <div class="svc"><span class="svc-num">02</span><h3 class="svc-title">Vitrinas y puntos de venta</h3><p class="svc-body">Mobiliario que protege, presenta y vende — resistente a la operación diaria.</p></div>
+    <div class="svc"><span class="svc-num">03</span><h3 class="svc-title">Locales y showrooms</h3><p class="svc-body">Interiorismo integral llave en mano, del concepto a la apertura.</p></div>
+    <div class="svc"><span class="svc-num">04</span><h3 class="svc-title">Mobiliario a medida</h3><p class="svc-body">Piezas fabricadas para las condiciones y lineamientos de cada espacio.</p></div>
+    <div class="svc"><span class="svc-num">05</span><h3 class="svc-title">Cumplimiento de plaza</h3><p class="svc-body">Proyectos alineados a los lineamientos de centros comerciales y desarrolladores.</p></div>
+    <div class="svc"><span class="svc-num">06</span><h3 class="svc-title">Instalación y puesta en operación</h3><p class="svc-body">Montaje en sitio, ajuste fino y entrega listo para abrir.</p></div>
+  </div>
+</section>
+
+<section class="band" data-screen-label="Ejecución">
+  <div class="band-txt">
+    <h3>Del plano a la plaza. Bien armado.</h3>
+    <p>Coordinamos diseño, fabricación e instalación bajo un solo responsable. Menos intermediarios, menos riesgos, un resultado que abre a tiempo.</p>
+  </div>
+  <div class="ph"><span class="ph-label">Foto — Instalación en plaza</span></div>
+</section>
+
+<section class="section dark aud" data-screen-label="Para quién">
+  <div>
+    <p class="eyebrow on-dark">Para quién</p>
+    <h2 class="section-title">Trabajamos con quien <em>ejecuta en serio</em></h2>
+    <p class="section-lead">Proyectos que exigen criterio, cumplimiento y un interlocutor único de principio a fin.</p>
+  </div>
+  <div class="aud-list">
+    <div class="aud-item"><span class="n">01</span><span class="t">Marcas y retailers</span></div>
+    <div class="aud-item"><span class="n">02</span><span class="t">Cadenas comerciales</span></div>
+    <div class="aud-item"><span class="n">03</span><span class="t">Plazas y centros comerciales</span></div>
+    <div class="aud-item"><span class="n">04</span><span class="t">Desarrolladores</span></div>
+  </div>
+</section>
+
+<section class="cta-final" data-screen-label="CTA final">
+  <img class="sym-bg" src="assets/symbol-clara.png" alt="">
+  <h2>¿Tienes un proyecto comercial en puerta?</h2>
+  <div class="btn-wrap"><a class="btn btn-solid-dark" href="contacto.html">Cotizar proyecto comercial <span class="arrow">→</span></a></div>
+</section>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div>
+      <img class="footer-logo" src="assets/logo-origen-clara.png" alt="MBO — Desde el origen">
+      <p class="footer-tag">Interiorismo comercial · Monterrey, México</p>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-col"><h4>Sitio</h4><a href="index.html">Inicio</a><a href="nosotros.html">Nosotros</a><a href="galeria.html">Galería</a><a href="contacto.html">Contacto</a></div>
+      <div class="footer-col"><h4>Servicios</h4><a href="comercial.html">Comercial</a><a href="residencial.html">Residencial</a><a href="galeria.html">Islas y exhibidores</a><a href="galeria.html">Locales y showrooms</a></div>
+      <div class="footer-col"><h4>Contacto</h4><a href="mailto:hola@mbo.mx">hola@mbo.mx</a><a href="tel:+528100000000">+52 81 0000 0000</a><p>Monterrey, México</p></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Muebles Bonilla · Interiorismo Comercial. Todos los derechos reservados.</span>
+    <span class="footer-copy">Desde el origen · 1993</span>
+  </div>
+</footer>
+
+</body>
+</html>

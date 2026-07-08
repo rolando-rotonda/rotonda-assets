@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nosotros — MBO · Interiorismo Comercial</title>
+<link rel="stylesheet" href="css/site.css">
+<style>
+  .nos-hero{ display:grid; grid-template-columns:1.35fr 0.65fr; gap:clamp(32px,5vw,72px); align-items:center; }
+  .nos-hero .sello{ width:min(30vw,300px); justify-self:center; filter:drop-shadow(0 10px 30px rgba(0,0,0,.35)); }
+  @media (max-width:820px){ .nos-hero{ grid-template-columns:1fr; } .nos-hero .sello{ width:180px; } }
+
+  .historia{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:clamp(40px,7vw,110px); align-items:start; }
+  .historia-title{ font-family:var(--sans); font-weight:600; font-size:clamp(26px,3.4vw,42px); line-height:1.14; text-transform:uppercase; }
+  .historia-body p{ font-family:var(--sans); font-weight:300; font-size:clamp(15px,1.35vw,18px); line-height:1.85; color:var(--muted); }
+  .historia-body p + p{ margin-top:20px; }
+  @media (max-width:820px){ .historia{ grid-template-columns:1fr; gap:32px; } }
+
+  .band{ display:grid; grid-template-columns:1fr 1fr; }
+  .band .ph{ min-height:clamp(260px,38vw,460px); }
+  .band-txt{ background:var(--grafito); color:var(--lamina); display:flex; flex-direction:column; justify-content:center; padding:clamp(40px,6vw,90px) var(--pad-x); }
+  .band-txt h3{ font-family:var(--sans); font-weight:600; font-size:clamp(24px,3vw,38px); line-height:1.15; margin-bottom:24px; text-transform:uppercase; }
+  .band-txt p{ font-family:var(--sans); font-weight:300; font-size:clamp(15px,1.3vw,18px); line-height:1.8; color:var(--lamina-75); max-width:48ch; }
+  @media (max-width:820px){ .band{ grid-template-columns:1fr; } }
+
+  .valores{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin-top:56px; background:var(--acero-15); border:1px solid var(--acero-15); }
+  .val{ background:var(--lamina); padding:clamp(28px,2.6vw,42px) clamp(22px,2vw,30px); display:flex; flex-direction:column; min-height:240px; border-bottom:3px solid transparent; transition:border-color 250ms; }
+  .val:hover{ border-bottom-color:var(--terra); }
+  .val-k{ font-family:var(--mono); font-weight:500; font-size:clamp(17px,1.6vw,21px); color:var(--grafito); margin-bottom:16px; text-transform:uppercase; }
+  .val-d{ font-family:var(--sans); font-weight:300; font-size:14px; line-height:1.7; color:var(--muted); margin-top:auto; }
+  @media (max-width:900px){ .valores{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .valores{ grid-template-columns:1fr; } .val{ min-height:0; } }
+
+  .cta-final{ background:var(--terra); color:var(--lamina); text-align:center; padding:clamp(64px,9vw,120px) var(--pad-x); position:relative; overflow:hidden; }
+  .cta-final .sym-bg{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:min(60vw,600px); opacity:.08; }
+  .cta-final h2{ position:relative; z-index:1; font-family:var(--sans); font-weight:600; font-size:clamp(26px,3.6vw,46px); line-height:1.14; max-width:22ch; margin:0 auto 36px; text-transform:uppercase; }
+  .cta-final .btn-wrap{ position:relative; z-index:1; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html"><img class="nav-logo" src="assets/logo-origen-grafito.png" alt="MBO — Desde el origen"></a>
+  <div class="nav-links">
+    <a class="nav-link" href="index.html">Inicio</a>
+    <a class="nav-link active" href="nosotros.html">Nosotros</a>
+    <a class="nav-link" href="comercial.html">Comercial</a>
+    <a class="nav-link" href="residencial.html">Residencial</a>
+    <a class="nav-link" href="galeria.html">Galería</a>
+    <a class="nav-link" href="contacto.html">Contacto</a>
+    <a class="nav-cta" href="contacto.html">Cotizar proyecto</a>
+  </div>
+</nav>
+
+<section class="pagehero" data-screen-label="Hero Nosotros">
+  <img class="sym-bg" src="assets/symbol-clara.png" alt="">
+  <div class="pagehero-inner nos-hero">
+    <div>
+      <p class="eyebrow on-dark">Nosotros</p>
+      <h1 class="pagehero-title">Cuando la isla comercial se estaba consolidando en el norte, ya estábamos ahí.</h1>
+    </div>
+    <img class="sello" src="assets/sello-grafito.png" alt="Muebles Bonilla · Interiorismo Comercial">
+  </div>
+</section>
+
+<section class="section historia" data-screen-label="Historia">
+  <div>
+    <p class="eyebrow">Historia</p>
+    <h2 class="historia-title">Ese conocimiento no se improvisa. Se acumula.</h2>
+  </div>
+  <div class="historia-body">
+    <p>Muebles Bonilla aprendió a trabajar en un punto exacto: entender qué se puede hacer, qué conviene hacer, qué permite la plaza y qué va a sostener la operación diaria — antes de fabricar la primera pieza.</p>
+    <p>Más de 30 años después, ese mismo criterio es lo que MBO pone sobre la mesa en cada proyecto: no la promesa de lo posible, sino la certeza de lo que funciona.</p>
+  </div>
+</section>
+
+<section class="band" data-screen-label="Taller">
+  <div class="ph"><span class="ph-label">Foto — Taller / Fabricación</span></div>
+  <div class="band-txt">
+    <h3>Del taller a la plaza. Bien armado.</h3>
+    <p>Todo se resuelve internamente: diseño, fabricación e instalación bajo un mismo responsable. Así el proyecto llega completo, a tiempo y listo para abrir.</p>
+  </div>
+</section>
+
+<section class="section" data-screen-label="Valores">
+  <p class="eyebrow">Valores</p>
+  <h2 class="section-title">Lo que nos <em>define</em></h2>
+  <div class="valores">
+    <div class="val"><span class="val-k">Oficio</span><span class="val-d">Conocimiento acumulado en taller e instalación.</span></div>
+    <div class="val"><span class="val-k">Criterio</span><span class="val-d">No todo se acepta ni todo se promete.</span></div>
+    <div class="val"><span class="val-k">Orden</span><span class="val-d">Proyecto orquestado, no piezas sueltas.</span></div>
+    <div class="val"><span class="val-k">Conocimiento de plaza</span><span class="val-d">Sabemos qué exige cada tipo de proyecto.</span></div>
+  </div>
+</section>
+
+<section class="cta-final" data-screen-label="CTA final">
+  <img class="sym-bg" src="assets/symbol-clara.png" alt="">
+  <h2>Cuéntanos qué proyecto necesitas resolver</h2>
+  <div class="btn-wrap"><a class="btn btn-solid-dark" href="contacto.html">Solicitar cotización <span class="arrow">→</span></a></div>
+</section>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div>
+      <img class="footer-logo" src="assets/logo-origen-clara.png" alt="MBO — Desde el origen">
+      <p class="footer-tag">Interiorismo comercial · Monterrey, México</p>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-col"><h4>Sitio</h4><a href="index.html">Inicio</a><a href="nosotros.html">Nosotros</a><a href="galeria.html">Galería</a><a href="contacto.html">Contacto</a></div>
+      <div class="footer-col"><h4>Servicios</h4><a href="comercial.html">Comercial</a><a href="residencial.html">Residencial</a><a href="galeria.html">Islas y exhibidores</a><a href="galeria.html">Locales y showrooms</a></div>
+      <div class="footer-col"><h4>Contacto</h4><a href="mailto:hola@mbo.mx">hola@mbo.mx</a><a href="tel:+528100000000">+52 81 0000 0000</a><p>Monterrey, México</p></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Muebles Bonilla · Interiorismo Comercial. Todos los derechos reservados.</span>
+    <span class="footer-copy">Desde el origen · 1993</span>
+  </div>
+</footer>
+
+</body>
+</html>

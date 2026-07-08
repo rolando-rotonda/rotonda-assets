@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Galería — MBO · Interiorismo Comercial</title>
+<link rel="stylesheet" href="css/site.css">
+<style>
+  .filters{ display:flex; flex-wrap:wrap; gap:10px; margin-top:44px; }
+  .filter{
+    font-family:var(--mono); font-weight:500; font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; padding:11px 20px; background:transparent;
+    border:1px solid var(--acero-30); color:var(--muted); cursor:pointer; transition:all 200ms ease;
+  }
+  .filter:hover{ border-color:var(--grafito); color:var(--grafito); }
+  .filter.active{ background:var(--grafito); border-color:var(--grafito); color:var(--lamina); }
+
+  .gal-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,1.8vw,26px); margin-top:44px; }
+  .gcard{ display:flex; flex-direction:column; opacity:1; transition:opacity 250ms ease; }
+  .gcard.hide{ display:none; }
+  .gcard .ph{ aspect-ratio:4/3; }
+  .gcard:hover .ph{ filter:brightness(1.12); }
+  .gcard-body{ padding:18px 2px 0; border-top:1px solid var(--acero-15); margin-top:16px; }
+  .gcard-top{ display:flex; justify-content:space-between; align-items:baseline; gap:14px; }
+  .gcard-name{ font-family:var(--mono); font-weight:500; font-size:15px; letter-spacing:.06em; text-transform:uppercase; color:var(--grafito); }
+  .gcard-cat{ font-family:var(--mono); font-weight:300; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--terra); text-align:right; white-space:nowrap; }
+  .gcard-type{ font-family:var(--sans); font-weight:500; font-size:13px; color:var(--muted); margin-top:8px; }
+  .gcard-scope{ font-family:var(--sans); font-weight:300; font-size:13px; line-height:1.55; color:var(--muted); margin-top:6px; }
+  @media (max-width:900px){ .gal-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .gal-grid{ grid-template-columns:1fr; } }
+
+  .cta-final{ background:var(--terra); color:var(--lamina); text-align:center; padding:clamp(64px,9vw,120px) var(--pad-x); position:relative; overflow:hidden; }
+  .cta-final .sym-bg{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:min(60vw,600px); opacity:.08; }
+  .cta-final h2{ position:relative; z-index:1; font-family:var(--sans); font-weight:600; font-size:clamp(26px,3.6vw,46px); line-height:1.14; max-width:22ch; margin:0 auto 36px; text-transform:uppercase; }
+  .cta-final .btn-wrap{ position:relative; z-index:1; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html"><img class="nav-logo" src="assets/logo-origen-grafito.png" alt="MBO — Desde el origen"></a>
+  <div class="nav-links">
+    <a class="nav-link" href="index.html">Inicio</a>
+    <a class="nav-link" href="nosotros.html">Nosotros</a>
+    <a class="nav-link" href="comercial.html">Comercial</a>
+    <a class="nav-link" href="residencial.html">Residencial</a>
+    <a class="nav-link active" href="galeria.html">Galería</a>
+    <a class="nav-link" href="contacto.html">Contacto</a>
+    <a class="nav-cta" href="contacto.html">Cotizar proyecto</a>
+  </div>
+</nav>
+
+<section class="pagehero" data-screen-label="Hero Galería">
+  <img class="sym-bg" src="assets/symbol-clara.png" alt="">
+  <div class="pagehero-inner">
+    <p class="eyebrow on-dark">Galería</p>
+    <h1 class="pagehero-title">Proyectos resueltos de inicio a fin</h1>
+    <div class="pagehero-rule"></div>
+    <p class="pagehero-sub">Cada espacio aquí fue diseñado, fabricado e instalado por MBO.</p>
+  </div>
+</section>
+
+<section class="section" data-screen-label="Galería">
+  <div class="filters" id="filters">
+    <button class="filter active" data-filter="todos">Todos</button>
+    <button class="filter" data-filter="islas">Islas y exhibidores</button>
+    <button class="filter" data-filter="vitrinas">Vitrinas y puntos de venta</button>
+    <button class="filter" data-filter="locales">Locales y showrooms</button>
+    <button class="filter" data-filter="residencial">Residencial</button>
+  </div>
+
+  <div class="gal-grid" id="grid">
+    <article class="gcard" data-cat="islas"><div class="ph"><span class="ph-label">Foto — Proyecto</span></div><div class="gcard-body"><div class="gcard-top"><span class="gcard-name">Lumina</span><span class="gcard-cat">Islas y exhibidores</span></div><p class="gcard-type">Isla de cosmética / skincare</p><p class="gcard-scope">Diseño, fabricación e instalación de isla y exhibidores.</p></div></article>
+    <article class="gcard" data-cat="locales"><div class="ph"><img src="assets/projects/kiko-donas.png" alt="Kiko Donas"></div><div class="gcard-body"><div class="gcard-top"><span class="gcard-name">Kiko Donas</span><span class="gcard-cat">Locales y showrooms</span></div><p class="gcard-type">Espacio comercial de alimentos</p><p class="gcard-scope">Kiosco redondo: mostrador, exhibición y señalética.</p></div></article>
+    <article class="gcard" data-cat="vitrinas"><div class="ph"><img src="assets/projects/telcel.png" alt="Telcel"></div><div class="gcard-body"><div class="gcard-top"><span class="gcard-name">Telcel</span><span class="gcard-cat">Vitrinas y PDV</span></div><p class="gcard-type">Punto de venta comercial</p><p class="gcard-scope">Vitrinas de cristal y mobiliario de punto de venta.</p></div></article>
+    <article class="gcard" data-cat="locales"><div class="ph"><img src="assets/projects/sabores-el-salle.png" alt="Sabores El Salle"></div><div class="gcard-body"><div class="gcard-top"><span class="gcard-name">Sabores El Salle</span><span class="gcard-cat">Locales y showrooms</span></div><p class="gcard-type">Espacio comercial de alimentos</p><p class="gcard-scope">Kiosco de repostería con exhibición refrigerada.</p></div></article>
+    <article class="gcard" data-cat="vitrinas"><div class="ph"><img src="assets/projects/utopia.png" alt="Utopía"></div><div class="gcard-body"><div class="gcard-top"><span class="gcard-name">Utopía</span><span class="gcard-cat">Vitrinas y PDV</span></div><p class="gcard-type">Proyecto comercial</p><p class="gcard-scope">Vitrinas de cristal iluminadas y branding integral.</p></div></article>
+    <article class="gcard" data-cat="vitrinas"><div class="ph"><img src="assets/projects/diginails.png" alt="Diginails"></div><div class="gcard-body"><div class="gcard-top"><span class="gcard-name">Diginails</span><span class="gcard-cat">Vitrinas y PDV</span></div><p class="gcard-type">Punto de venta comercial</p><p class="gcard-scope">Isla de servicio con estaciones y señalética.</p></div></article>
+    <article class="gcard" data-cat="islas"><div class="ph"><img src="assets/projects/elote-real.png" alt="Elote Real"></div><div class="gcard-body"><div class="gcard-top"><span class="gcard-name">Elote Real</span><span class="gcard-cat">Islas y exhibidores</span></div><p class="gcard-type">Isla de alimentos</p><p class="gcard-scope">Isla de esquites y bebidas con barra y refrigeración.</p></div></article>
+    <article class="gcard" data-cat="islas"><div class="ph"><img src="assets/projects/crazy-cups.png" alt="Crazy Cups"></div><div class="gcard-body"><div class="gcard-top"><span class="gcard-name">Crazy Cups</span><span class="gcard-cat">Islas y exhibidores</span></div><p class="gcard-type">Isla de postres</p><p class="gcard-scope">Isla de postres con barra de toppings y branding.</p></div></article>
+    <article class="gcard" data-cat="islas"><div class="ph"><img src="assets/projects/chillin-snacking.png" alt="Chillin' Snacking"></div><div class="gcard-body"><div class="gcard-top"><span class="gcard-name">Chillin' Snacking</span><span class="gcard-cat">Islas y exhibidores</span></div><p class="gcard-type">Isla de snacks</p><p class="gcard-scope">Isla de snacks y bebidas con pantallas de menú.</p></div></article>
+    <article class="gcard" data-cat="islas"><div class="ph"><img src="assets/projects/calufe.png" alt="Calufe"></div><div class="gcard-body"><div class="gcard-top"><span class="gcard-name">Calufe</span><span class="gcard-cat">Islas y exhibidores</span></div><p class="gcard-type">Isla de café</p><p class="gcard-scope">Isla de café con barra y menú iluminado.</p></div></article>
+    <article class="gcard" data-cat="islas"><div class="ph"><img src="assets/projects/esquites-snacks.png" alt="Esquites &amp; Snacks"></div><div class="gcard-body"><div class="gcard-top"><span class="gcard-name">Esquites &amp; Snacks</span><span class="gcard-cat">Islas y exhibidores</span></div><p class="gcard-type">Isla de alimentos</p><p class="gcard-scope">Isla con lona tensada y exhibición en cristal.</p></div></article>
+    <article class="gcard" data-cat="locales"><div class="ph"><img src="assets/projects/la-creperia.png" alt="La Crepería"></div><div class="gcard-body"><div class="gcard-top"><span class="gcard-name">La Crepería</span><span class="gcard-cat">Locales y showrooms</span></div><p class="gcard-type">Local de alimentos</p><p class="gcard-scope">Kiosco de crepas con estación a la vista.</p></div></article>
+    <article class="gcard" data-cat="locales"><div class="ph"><img src="assets/projects/topolino.png" alt="Topolino"></div><div class="gcard-body"><div class="gcard-top"><span class="gcard-name">Topolino</span><span class="gcard-cat">Locales y showrooms</span></div><p class="gcard-type">Gelatería y café</p><p class="gcard-scope">Barra completa de gelatería con estación de café.</p></div></article>
+    <article class="gcard" data-cat="vitrinas"><div class="ph"><img src="assets/projects/holbox.png" alt="Holbox"></div><div class="gcard-body"><div class="gcard-top"><span class="gcard-name">Holbox</span><span class="gcard-cat">Vitrinas y PDV</span></div><p class="gcard-type">Óptica</p><p class="gcard-scope">Kiosco de óptica con vitrinas iluminadas y espejo LED.</p></div></article>
+    <article class="gcard" data-cat="residencial"><div class="ph light"><span class="ph-label">Foto — Proyecto</span></div><div class="gcard-body"><div class="gcard-top"><span class="gcard-name">Cocina a medida</span><span class="gcard-cat">Residencial</span></div><p class="gcard-type">Cocina y carpintería</p><p class="gcard-scope">Diseño y fabricación a medida del espacio.</p></div></article>
+    <article class="gcard" data-cat="residencial"><div class="ph light"><span class="ph-label">Foto — Proyecto</span></div><div class="gcard-body"><div class="gcard-top"><span class="gcard-name">Closet nogal</span><span class="gcard-cat">Residencial</span></div><p class="gcard-type">Closet y puertas</p><p class="gcard-scope">Carpintería especializada residencial.</p></div></article>
+  </div>
+</section>
+
+<section class="cta-final" data-screen-label="CTA final">
+  <img class="sym-bg" src="assets/symbol-clara.png" alt="">
+  <h2>¿Tu proyecto es el siguiente?</h2>
+  <div class="btn-wrap"><a class="btn btn-solid-dark" href="contacto.html">Solicitar cotización <span class="arrow">→</span></a></div>
+</section>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div>
+      <img class="footer-logo" src="assets/logo-origen-clara.png" alt="MBO — Desde el origen">
+      <p class="footer-tag">Interiorismo comercial · Monterrey, México</p>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-col"><h4>Sitio</h4><a href="index.html">Inicio</a><a href="nosotros.html">Nosotros</a><a href="galeria.html">Galería</a><a href="contacto.html">Contacto</a></div>
+      <div class="footer-col"><h4>Servicios</h4><a href="comercial.html">Comercial</a><a href="residencial.html">Residencial</a><a href="galeria.html">Islas y exhibidores</a><a href="galeria.html">Locales y showrooms</a></div>
+      <div class="footer-col"><h4>Contacto</h4><a href="mailto:hola@mbo.mx">hola@mbo.mx</a><a href="tel:+528100000000">+52 81 0000 0000</a><p>Monterrey, México</p></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Muebles Bonilla · Interiorismo Comercial. Todos los derechos reservados.</span>
+    <span class="footer-copy">Desde el origen · 1993</span>
+  </div>
+</footer>
+
+<script>
+  const filters = document.getElementById('filters');
+  const cards = [...document.querySelectorAll('.gcard')];
+  filters.addEventListener('click', (e) => {
+    const btn = e.target.closest('.filter');
+    if(!btn) return;
+    filters.querySelectorAll('.filter').forEach(f => f.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    cards.forEach(c => {
+      c.classList.toggle('hide', f !== 'todos' && c.dataset.cat !== f);
+    });
+  });
+</script>
+
+</body>
+</html>
