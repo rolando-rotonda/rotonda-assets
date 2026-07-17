@@ -1,0 +1,76 @@
+/* MBO — Typography Tokens
+   GT Flexa Mono (Light 300, Medium 500) — fuentes originales con licencia
+   Inter Variable — cubre todos los pesos con un solo archivo
+   ──────────────────────────────────────────────────────────────────────── */
+
+/* GT Flexa Mono — Light */
+@font-face {
+  font-family: 'GT Flexa Mono';
+  src: url('../assets/fonts/GT-Flexa-Mono-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* GT Flexa Mono — Medium */
+@font-face {
+  font-family: 'GT Flexa Mono';
+  src: url('../assets/fonts/GT-Flexa-Mono-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Inter Variable — todos los pesos */
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/Inter-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Inter Variable — itálica */
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/Inter-Variable-Italic.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* ── Stacks — GT Flexa Mono primero, ahora disponible ── */
+  --font-mono: 'GT Flexa Mono', 'IBM Plex Mono', monospace;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* ── Escala de tamaño ── */
+  --text-display-xl: 80px;
+  --text-display:    60px;
+  --text-title:      40px;
+  --text-subtitle:   28px;
+  --text-body-lg:    20px;
+  --text-body:       16px;
+  --text-small:      14px;
+  --text-label:      12px;
+  --text-micro:      11px;
+
+  /* ── Pesos ── */
+  --weight-light:   300;
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-bold:    700;
+
+  /* ── Interlineado ── */
+  --leading-tight:   1.05;
+  --leading-snug:    1.25;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.7;
+
+  /* ── Tracking ── */
+  --tracking-tight:   -0.01em;
+  --tracking-normal:   0;
+  --tracking-wide:     0.06em;
+  --tracking-wider:    0.12em;
+  --tracking-widest:   0.20em;
+}

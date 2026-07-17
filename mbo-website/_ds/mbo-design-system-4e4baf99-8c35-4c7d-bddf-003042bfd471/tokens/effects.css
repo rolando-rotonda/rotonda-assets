@@ -1,0 +1,26 @@
+/* MBO — Effects Tokens
+   Bordes, transiciones, sombras.
+   ────────────────────────────── */
+
+:root {
+  /* ── Bordes ── */
+  --border-thin:   1px solid var(--color-border);
+  --border-medium: 2px solid var(--color-border);
+  --border-thick:  3px solid var(--color-acero-verde);
+
+  /* ── Transiciones ── */
+  --transition-fast: 150ms ease; /* @kind other */
+  --transition-mid:  250ms ease;  /* @kind other */
+  --transition-slow: 400ms ease;  /* @kind other */
+
+  /* ── Sombras — mínimas, institucionales ── */
+  --shadow-xs:  0 1px 3px rgba(0, 48, 69, 0.06);
+  --shadow-sm:  0 2px 8px rgba(0, 48, 69, 0.08);
+  --shadow-md:  0 4px 16px rgba(0, 48, 69, 0.10);
+  --shadow-lg:  0 8px 32px rgba(0, 48, 69, 0.12);
+
+  /* ── Línea decorativa de marca ── */
+  --rule-brand: 2px solid var(--color-acero-verde);
+  --rule-accent: 2px solid var(--color-madera-terra);
+  --rule-light:  1px solid var(--color-border);
+}

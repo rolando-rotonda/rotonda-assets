@@ -1,0 +1,35 @@
+/* MBO — Spacing Tokens
+   Grid base de 8px.
+   ─────────────────── */
+
+:root {
+  --space-0:  0;
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+  --space-40: 160px;
+
+  /* ── Layout ── */
+  --container-max:    1280px;
+  --container-narrow:  768px;
+  --grid-gutter:        32px;
+  --section-pad-x:      80px;
+  --section-pad-y:      80px;
+  --section-pad-x-sm:   32px;
+  --section-pad-y-sm:   48px;
+
+  /* ── Radius — institucional, mínimo ── */
+  --radius-none: 0px;
+  --radius-xs:   2px;
+  --radius-sm:   4px;
+}

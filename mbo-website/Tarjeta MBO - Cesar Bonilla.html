@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="design_doc_mode" content="canvas">
+<title>Tarjeta MBO — César Bonilla</title>
+<style>
+  /* ── Fuentes de marca ── */
+  @font-face{
+    font-family:'GT Flexa Mono';
+    src:url('fonts/GT-Flexa-Mono-Light.otf') format('opentype');
+    font-weight:300; font-style:normal; font-display:swap;
+  }
+  @font-face{
+    font-family:'GT Flexa Mono';
+    src:url('fonts/GT-Flexa-Mono-Medium.otf') format('opentype');
+    font-weight:500; font-style:normal; font-display:swap;
+  }
+  @font-face{
+    font-family:'Inter';
+    src:url('fonts/Inter-Variable.ttf') format('truetype');
+    font-weight:100 900; font-style:normal; font-display:swap;
+  }
+
+  :root{
+    --lamina:#EAEAE1;
+    --acero:#3B5452;
+    --grafito:#003045;
+    --terra:#93775B;
+    --mono:'GT Flexa Mono','IBM Plex Mono',monospace;
+    --sans:'Inter',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--sans);}
+  a{color:var(--grafito);text-decoration:none;}
+  a:hover{color:var(--terra);}
+
+  .caption{
+    position:absolute;
+    font-family:var(--mono);
+    font-weight:300;
+    font-size:11px;
+    letter-spacing:.20em;
+    text-transform:uppercase;
+    color:var(--acero);
+  }
+
+  /* ── Cascarón de tarjeta 90×50 mm ── */
+  .card{
+    position:absolute;
+    width:90mm;
+    height:50mm;
+    border-radius:0;
+    overflow:hidden;
+    box-shadow:0 2mm 9mm rgba(0,48,69,.30), 0 .5mm 1.5mm rgba(0,48,69,.20);
+  }
+
+  /* ═══ FRENTE ═══ */
+  .front{
+    background:var(--grafito);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:8mm;
+  }
+  .front .sym{
+    position:absolute;
+    right:-12mm; bottom:-14mm;
+    width:48mm; height:auto;
+    opacity:.13;
+    pointer-events:none;
+  }
+  .front .logo{
+    width:56mm; height:auto;
+    display:block;
+    position:relative; z-index:1;
+  }
+  .front .slogan{
+    position:absolute;
+    left:0; right:0; bottom:6mm;
+    text-align:center;
+    font-family:var(--mono);
+    font-weight:300;
+    font-size:2.5mm;
+    letter-spacing:.42em;
+    text-transform:uppercase;
+    color:var(--terra);
+    text-indent:.42em;
+    z-index:1;
+  }
+
+  /* ═══ REVERSO ═══ */
+  .back{
+    background:var(--lamina);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:5mm 7.5mm;
+  }
+  .back .top{
+    position:relative; z-index:1;
+    display:flex;
+    flex-direction:column;
+    gap:4mm;
+  }
+  .back .sym{
+    position:absolute;
+    right:-18mm; top:-10mm;
+    width:44mm; height:auto;
+    opacity:.10;
+    pointer-events:none;
+  }
+  .back .logo{
+    width:18mm; height:auto;
+    display:block;
+  }
+  .back .name{
+    font-family:var(--mono);
+    font-weight:500;
+    font-size:5.2mm;
+    letter-spacing:.01em;
+    color:var(--grafito);
+    line-height:1;
+  }
+  .back .role{
+    margin-top:1.8mm;
+    font-family:var(--mono);
+    font-weight:300;
+    font-size:2.4mm;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:var(--terra);
+  }
+  .back .contact{
+    position:relative; z-index:1;
+    border-top:.25mm solid var(--acero);
+    padding-top:3mm;
+    display:flex;
+    flex-direction:column;
+    gap:1.6mm;
+  }
+  .back .row{
+    display:flex;
+    align-items:baseline;
+    gap:3mm;
+  }
+  .back .row .lbl{
+    font-family:var(--mono);
+    font-weight:300;
+    font-size:2.1mm;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--acero);
+    width:15mm;
+    flex-shrink:0;
+  }
+  .back .row .val{
+    font-family:var(--sans);
+    font-weight:500;
+    font-size:2.9mm;
+    letter-spacing:.01em;
+    color:var(--grafito);
+  }
+</style>
+</head>
+<body>
+
+  <!-- FRENTE -->
+  <div class="caption" style="left:120px; top:96px;">Frente</div>
+  <div class="card front" style="left:120px; top:128px;" data-screen-label="Frente">
+    <img class="sym" src="assets/symbol-terra.png" alt="">
+    <img class="logo" src="assets/ic-clara.png" alt="MBO Interiorismo Comercial">
+    <div class="slogan">Desde el origen</div>
+  </div>
+
+  <!-- REVERSO -->
+  <div class="caption" style="left:485px; top:96px;">Reverso</div>
+  <div class="card back" style="left:485px; top:128px;" data-screen-label="Reverso">
+    <img class="sym" src="assets/symbol-terra.png" alt="">
+    <div class="top">
+      <img class="logo" src="assets/ic-grafito.png" alt="MBO Interiorismo Comercial">
+      <div class="id">
+        <div class="name">César Bonilla</div>
+        <div class="role">Director de Operaciones</div>
+      </div>
+    </div>
+    <div class="contact">
+      <div class="row"><span class="lbl">Correo</span><a class="val" href="mailto:hola@mbo.mx">hola@mbo.mx</a></div>
+      <div class="row"><span class="lbl">Web</span><a class="val" href="https://mbo.mx">mbo.mx</a></div>
+      <div class="row"><span class="lbl">Sede</span><span class="val">Monterrey, México</span></div>
+    </div>
+  </div>
+
+</body>
+</html>

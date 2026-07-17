@@ -34,9 +34,17 @@
   .hero-right .ph{ position:absolute; inset:0; }
   .hero-right .ph-label{ position:absolute; left:0; bottom:0; }
 
+  /* Disolvencia entre fotos */
+  .reveal{ position:absolute; inset:0; overflow:hidden; }
+  .reveal img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; opacity:0; transition:opacity 1.6s ease; }
+  .reveal img.active{ opacity:1; }
+  @media (prefers-reduced-motion:reduce){
+    .reveal img{ transition:none; }
+  }
+
   /* Sello sobre la costura */
   .hero-sello{
-    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    position:absolute; top:50%; left:0; transform:translate(-50%,-50%);
     width:clamp(120px,13vw,188px); z-index:5; pointer-events:none;
     filter:drop-shadow(0 8px 28px rgba(0,48,69,.4));
   }
@@ -65,7 +73,10 @@
     .hero{ grid-template-columns:1fr; min-height:0; }
     .hero-left{ padding-bottom:clamp(40px,8vw,64px); }
     .hero-right{ min-height:56vw; order:-1; }
-    .hero-sello{ top:auto; bottom:0; left:auto; right:var(--pad-x); transform:translateY(50%); }
+    .hero-sello{ top:auto; bottom:0; left:50%; transform:translate(-50%,50%); width:clamp(96px,22vw,130px); }
+    .hero-eyebrow{ margin-top:clamp(56px,16vw,80px); }
+    .hero-eyebrow .he-sep{ display:none; }
+    .hero-eyebrow span{ display:block; }
     .hero-card{ position:static; width:auto; margin:24px var(--pad-x) 0; }
   }
 
@@ -129,7 +140,7 @@
 
 <!-- NAV -->
 <nav class="nav">
-  <a href="index.html"><img class="nav-logo" src="assets/logo-origen-grafito.png" alt="MBO — Desde el origen"></a>
+  <a class="nav-brand" href="index.html"><img class="nav-logo" src="assets/logo-nav-grafito.png" alt="MBO — Desde el origen"></a>
   <div class="nav-links">
     <a class="nav-link active" href="index.html">Inicio</a>
     <a class="nav-link" href="nosotros.html">Nosotros</a>
@@ -137,14 +148,14 @@
     <a class="nav-link" href="residencial.html">Residencial</a>
     <a class="nav-link" href="galeria.html">Galería</a>
     <a class="nav-link" href="contacto.html">Contacto</a>
-    <a class="nav-cta" href="contacto.html">Cotizar proyecto</a>
+    <a class="nav-cta" href="contacto.html">Cotizar</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <header class="hero" data-screen-label="Hero Inicio">
   <div class="hero-left">
-    <p class="hero-eyebrow">Muebles Bonilla · Interiorismo Comercial</p>
+    <p class="hero-eyebrow"><span>Muebles Bonilla</span><span class="he-sep"> · </span><span>Interiorismo Comercial</span></p>
     <h1 class="hero-title">Para abrir bien.<br>Desde el origen.</h1>
     <p class="hero-sub">MBO es una empresa de interiorismo comercial especializada en islas, vitrinas, exhibidores, locales, showrooms y mobiliario para puntos de venta.</p>
     <div>
@@ -152,9 +163,18 @@
     </div>
   </div>
   <div class="hero-right">
-    <div class="ph"><span class="ph-label">Foto — Taller / Fabricación</span></div>
+    <div class="reveal" id="heroReveal">
+      <img class="active" src="assets/photos/freedom-vitrina.png" alt="Kiosco Freedom Premium">
+      <img src="assets/photos/bsh-gastronomica.png" alt="Blatt Salat Haus">
+      <img src="assets/photos/porcelanite-showroom.png" alt="Showroom Porcelanite">
+      <img src="assets/photos/kiosko.png" alt="Isla KiosKo">
+      <img src="assets/photos/vitrina-corporativa.png" alt="Kiosco de vitrinas corporativas">
+      <img src="assets/photos/eagle-eyes-kiosko.png" alt="Kiosco Eagle Eyes de lentes en plaza">
+      <img src="assets/photos/eagle-eyes-interior.png" alt="Kiosco Eagle Eyes con vitrinas iluminadas de lentes">
+      <img src="assets/photos/pop-out.png" alt="Kiosco Pop Out de jugos y bebidas en plaza">
+    </div>
+    <img class="hero-sello" src="assets/sello-grafito.png" alt="Muebles Bonilla · Interiorismo Comercial">
   </div>
-  <img class="hero-sello" src="assets/sello-grafito.png" alt="Muebles Bonilla · Interiorismo Comercial">
   <a class="hero-card" href="galeria.html">
     <div class="ph"><img src="assets/projects/kiko-donas.png" alt="Kiko Donas"></div>
     <div class="hero-card-bar">
@@ -198,12 +218,27 @@
     <a class="btn btn-ghost" href="galeria.html">Ver galería completa <span class="arrow">→</span></a>
   </div>
   <div class="proj-grid">
-    <a class="proj" href="galeria.html"><div class="ph"><span class="ph-label">Foto — Proyecto</span></div><div class="proj-meta"><span class="proj-name">Lumina</span><span class="proj-type">Isla de cosmética / skincare</span></div></a>
+    <a class="proj" href="galeria.html"><div class="ph"><img src="assets/photos/bsh-gastronomica.png" alt="Blatt Salat Haus"></div><div class="proj-meta"><span class="proj-name">Blatt Salat Haus</span><span class="proj-type">Kiosco gastronómico en plaza</span></div></a>
     <a class="proj" href="galeria.html"><div class="ph"><img src="assets/projects/kiko-donas.png" alt="Kiko Donas"></div><div class="proj-meta"><span class="proj-name">Kiko Donas</span><span class="proj-type">Espacio comercial de alimentos</span></div></a>
     <a class="proj" href="galeria.html"><div class="ph"><img src="assets/projects/telcel.png" alt="Telcel"></div><div class="proj-meta"><span class="proj-name">Telcel</span><span class="proj-type">Punto de venta comercial</span></div></a>
     <a class="proj" href="galeria.html"><div class="ph"><img src="assets/projects/sabores-el-salle.png" alt="Sabores El Salle"></div><div class="proj-meta"><span class="proj-name">Sabores El Salle</span><span class="proj-type">Espacio comercial de alimentos</span></div></a>
     <a class="proj" href="galeria.html"><div class="ph"><img src="assets/projects/utopia.png" alt="Utopía"></div><div class="proj-meta"><span class="proj-name">Utopía</span><span class="proj-type">Proyecto comercial</span></div></a>
     <a class="proj" href="galeria.html"><div class="ph"><img src="assets/projects/diginails.png" alt="Diginails"></div><div class="proj-meta"><span class="proj-name">Diginails</span><span class="proj-type">Punto de venta comercial</span></div></a>
+  </div>
+</section>
+
+<!-- CLIENTES -->
+<section class="clients" data-screen-label="Clientes">
+  <p class="clients-label">Marcas y negocios que han confiado en MBO</p>
+  <div class="clients-row">
+    <span class="client-mark">Telcel</span>
+    <span class="client-mark">Kiko Donas</span>
+    <span class="client-mark">Calufe</span>
+    <span class="client-mark">Holbox</span>
+    <span class="client-mark">La Crepería</span>
+    <span class="client-mark">Diginails</span>
+    <span class="client-mark">Utopía</span>
+    <span class="client-mark">Topolino</span>
   </div>
 </section>
 
@@ -213,6 +248,7 @@
     <p class="eyebrow on-dark">Por qué MBO</p>
     <h2 class="section-title">No somos una prueba.<br><em>Somos una decisión<br>bien tomada.</em></h2>
     <p class="section-lead">Un solo equipo resuelve el proyecto completo — con el criterio que solo dan las décadas en plaza.</p>
+    <p class="section-lead">Con base en Monterrey, atendemos proyectos en toda la república — desde una sola isla hasta cadenas con múltiples ubicaciones.</p>
   </div>
   <div class="diff-list">
     <div class="diff-item"><span class="n">01</span><span class="t">Oficio</span></div>
@@ -248,6 +284,10 @@
     <div>
       <img class="footer-logo" src="assets/logo-origen-clara.png" alt="MBO — Desde el origen">
       <p class="footer-tag">Interiorismo comercial · Monterrey, México</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/mueblesbonilla" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.5h2.5V5.2C16 5.1 14.9 5 13.6 5 10.9 5 9 6.7 9 9.7v2.6H6v3.5h3V24h3.6v-8.2h2.9l.5-3.5h-3.4V10c0-1 .3-1.5 1.9-1.5z"/></svg></a>
+        <a href="https://www.instagram.com/mueblesbonilla" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+      </div>
     </div>
     <div class="footer-nav">
       <div class="footer-col">
@@ -266,17 +306,32 @@
       </div>
       <div class="footer-col">
         <h4>Contacto</h4>
-        <a href="mailto:hola@mbo.mx">hola@mbo.mx</a>
-        <a href="tel:+528100000000">+52 81 0000 0000</a>
+        <a href="mailto:ventas@mueblesbonilla.com">ventas@mueblesbonilla.com</a>
+        <a href="tel:+528183757475">81 8375 7475</a>
         <p>Monterrey, México</p>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
     <span class="footer-copy">© 2026 Muebles Bonilla · Interiorismo Comercial. Todos los derechos reservados.</span>
-    <span class="footer-copy">Desde el origen · 1993</span>
+    <span class="footer-copy"><a href="aviso-privacidad.html">Aviso de Privacidad</a> · Desde el origen · 1993</span>
   </div>
 </footer>
+
+<script>
+(function(){
+  var wrap=document.getElementById('heroReveal');
+  if(!wrap)return;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  var imgs=wrap.querySelectorAll('img'),i=0;
+  if(imgs.length<2)return;
+  setInterval(function(){
+    imgs[i].classList.remove('active');
+    i=(i+1)%imgs.length;
+    imgs[i].classList.add('active');
+  },4600);
+})();
+</script>
 
 </body>
 </html>

@@ -1,0 +1,41 @@
+/* MBO — Color Tokens
+   Paleta oficial según Manual de Identidad MBO
+   ─────────────────────────────────────────── */
+
+:root {
+  /* ── Paleta base ── */
+  --color-lamina-clara:    #EAEAE1;
+  --color-acero-verde:     #3B5452;
+  --color-grafito-modular: #003045;
+  --color-madera-terra:    #93775B;
+
+  /* ── Tints / opacidades ── */
+  --color-acero-verde-08:  rgba(59, 84, 82, 0.08);
+  --color-acero-verde-15:  rgba(59, 84, 82, 0.15);
+  --color-acero-verde-30:  rgba(59, 84, 82, 0.30);
+  --color-grafito-08:      rgba(0, 48, 69, 0.08);
+  --color-grafito-15:      rgba(0, 48, 69, 0.15);
+  --color-grafito-30:      rgba(0, 48, 69, 0.30);
+  --color-madera-20:       rgba(147, 119, 91, 0.20);
+  --color-madera-40:       rgba(147, 119, 91, 0.40);
+  --color-lamina-50:       rgba(234, 234, 225, 0.50);
+  --color-lamina-20:       rgba(234, 234, 225, 0.20);
+
+  /* ── Roles semánticos ── */
+  --color-bg:              var(--color-lamina-clara);
+  --color-bg-dark:         var(--color-grafito-modular);
+  --color-bg-brand:        var(--color-acero-verde);
+  --color-bg-accent:       var(--color-madera-terra);
+
+  --color-text:            var(--color-grafito-modular);
+  --color-text-muted:      var(--color-acero-verde);
+  --color-text-on-dark:    var(--color-lamina-clara);
+  --color-text-accent:     var(--color-madera-terra);
+
+  --color-border:          var(--color-acero-verde-30);
+  --color-border-dark:     var(--color-grafito-30);
+  --color-border-light:    var(--color-lamina-20);
+
+  --color-brand:           var(--color-acero-verde);
+  --color-accent:          var(--color-madera-terra);
+}

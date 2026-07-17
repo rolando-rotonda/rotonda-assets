@@ -55,7 +55,9 @@ a:hover{ color:var(--terra); }
   display:flex; align-items:center; justify-content:space-between;
   padding:0 var(--pad-x); height:84px;
 }
-.nav-logo{ height:46px; width:auto; }
+.nav-logo{ height:52px; width:auto; object-fit:contain; }
+.nav-brand{ display:flex; align-items:center; gap:11px; }
+.nav-brand::after{ content:""; }.nav-tag{ font-family:var(--mono); font-weight:300; font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:var(--terra); line-height:1.35; border-left:1px solid var(--acero-15); padding-left:11px; }
 .nav-links{ display:flex; gap:38px; align-items:center; }
 .nav-link{
   font-family:var(--mono); font-size:12px; font-weight:300;
@@ -204,11 +206,42 @@ a:hover{ color:var(--terra); }
 /* ══════════ RESPONSIVE ══════════ */
 @media (max-width:1024px){
   .nav{ padding:0 clamp(20px,4vw,48px); }
-  .nav-links{ gap:22px; }
+  .nav-brand{ margin-right:20px; }
+  .nav-links{ gap:20px; }
   .nav-link{ font-size:11px; letter-spacing:.1em; }
   .nav-cta{ padding:11px 18px; }
 }
 @media (max-width:820px){
   .nav-link{ display:none; }
   .nav-links{ gap:0; }
+  .nav-tag{ display:none; }
 }
+
+/* ══════════ REDES SOCIALES (FOOTER) ══════════ */
+.footer-social{ display:flex; gap:14px; margin-top:22px; }
+.footer-social a{
+  display:flex; align-items:center; justify-content:center;
+  width:38px; height:38px; border:1px solid rgba(234,234,225,.22);
+  color:var(--lamina-75); transition:all 200ms ease;
+}
+.footer-social a:hover{ border-color:var(--terra); color:var(--terra); }
+.footer-social svg{ width:17px; height:17px; }
+.footer-bottom a{ color:var(--lamina-60); transition:color 150ms; }
+.footer-bottom a:hover{ color:var(--lamina); }
+
+/* ══════════ FRANJA DE CLIENTES ══════════ */
+.clients{ background:var(--lamina); padding:clamp(48px,6vw,72px) var(--pad-x); border-top:1px solid var(--acero-15); }
+.clients-label{
+  font-family:var(--mono); font-weight:500; font-size:10px; letter-spacing:.24em;
+  text-transform:uppercase; color:var(--terra); text-align:center; margin-bottom:clamp(32px,4vw,48px);
+}
+.clients-row{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+  gap:clamp(32px,5vw,72px);
+}
+.client-mark{
+  font-family:var(--mono); font-weight:500; font-size:clamp(15px,1.5vw,19px);
+  letter-spacing:.14em; text-transform:uppercase; color:var(--grafito);
+  opacity:.34; filter:grayscale(1); transition:opacity 250ms ease, color 250ms ease;
+}
+.client-mark:hover{ opacity:.9; color:var(--terra); }
